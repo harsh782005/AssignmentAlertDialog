@@ -71,7 +71,8 @@
         android:textStyle="bold|italic"
         android:inputType="number|numberDecimal"
         android:background="#817F7F"
-        android:id="@+id/no"/>
+        android:id="@+id/no"
+        />
     <androidx.constraintlayout.widget.Guideline
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,5 +107,5 @@
         android:text="@string/cal"
         android:textStyle="bold|italic"
         android:textSize="35sp"
-        android:id="@+id/btn"/>
+        android:id="@+id/btnCalculate"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
