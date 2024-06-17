@@ -29,22 +29,27 @@ class MainActivity : AppCompatActivity() {
             if (binding?.no?.text.toString().trim().isNullOrEmpty()) {
                 binding?.no?.error = "enter number"
             } else {
-                var alertDialog = AlertDialog.Builder(this)
-                alertDialog.setTitle("Perform calculation")
-                alertDialog.setMessage("Add 10 to${binding?.no}\nSub 10 to${binding?.no}\nReset${binding?.no}")
-                alertDialog.setCancelable(false)
-                alertDialog.setPositiveButton("Add 10", { _, _ ->
-                    Toast.makeText(this, "postive button clicked", Toast.LENGTH_LONG).show()
-                })
-                alertDialog.setPositiveButton("Sub 10", { _, _ ->
-                    Toast.makeText(this, "Negative button clicked", Toast.LENGTH_LONG).show()
-                })
-                alertDialog.setNeutralButton("Reset", { _, _ ->
-                    Toast.makeText(this, "Neutral Clicked", Toast.LENGTH_LONG).show()
-                })
+                binding?.btn?.setOnClickListener {
+                    var alertDialog = AlertDialog.Builder(this)
+                    alertDialog.setTitle("Perform calculation")
+                    alertDialog.setMessage("Add 10 to${binding?.no}\nSub 10 to${binding?.no}\nReset${binding?.no}")
+                    alertDialog.setCancelable(false)
+                    alertDialog.setPositiveButton("Add 10", { _, _ ->
+                        binding?.no += binding?.no
+                        Toast.makeText(this, "postive button clicked", Toast.LENGTH_LONG).show()
+                    })
+                    alertDialog.setPositiveButton("Sub 10", { _, _ ->
+                        binding?.no-=binding?.no
+                        Toast.makeText(this, "Negative button clicked", Toast.LENGTH_LONG).show()
+                    })
+                    alertDialog.setNeutralButton("Reset", { _, _ ->
+                        binding?.no?.setText({binding?.no}=0)
+                        Toast.makeText(this, "Reset Clicked", Toast.LENGTH_LONG).show()
+                    })
+
+                }
 
             }
-
         }
     }
 }
